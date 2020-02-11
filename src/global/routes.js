@@ -1,12 +1,12 @@
 import React from "react";
 import {BrowserRouter, Switch,Route} from "react-router-dom"
-import CustomerList from '../components/CustomerList'
+import CustomerPage from '../pages/CustomerPage'
 
   const Routes = () => (
     <BrowserRouter>
     <Switch>
       <Route exact path="/">
-        <CustomerList />
+        <CustomerPage/>
         </Route>
     </Switch>
     </BrowserRouter>

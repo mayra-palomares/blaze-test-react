@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import './../styles/App.css';
 import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-balham.css';
@@ -17,7 +16,7 @@ class CustomerList extends Component {
         headerName: "Email", field: "email", sortable: true, filter: true
       },
       {
-        headerName: "Phone Number", field: "phoneNumber"
+        headerName: "Phone Number", field: "phoneNumber", sortable: true, filter: true
       }],
       rowData: []
     }
@@ -25,7 +24,7 @@ class CustomerList extends Component {
 
   componentDidMount() {
     let url = process.env.API_URL||'http://localhost:5000/'
-    url = url + 'customers?limit=1000'
+    url = url + 'customers'
     axios.get(url)
     .then(response => {
       this.setState({rowData: response.data.data})})
@@ -37,8 +36,8 @@ class CustomerList extends Component {
       <div
         className="ag-theme-balham"
         style={{
-        height: '500px',
-        width: '600px' }}
+        height: '600px',
+        width: '60%'}}
       >
         <AgGridReact
           rowModelType="clientSide"
